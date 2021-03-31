@@ -8,6 +8,7 @@ LibAUC
     </td>
 </tr>
 
+![An end-to-end machine learning library for auc optimization](libauc.png)
 
 Why is LibAUC?
 ---------------
