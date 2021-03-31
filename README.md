@@ -25,10 +25,9 @@ Original Links
 
 How to install
 --------------
-
-::
-
-   pip install libauc
+```
+$ pip install libauc
+```
 
 Example
 -------
