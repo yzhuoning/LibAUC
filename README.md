@@ -2,7 +2,17 @@
 
 LibAUC
 ======
-![libauc.org](libauc.png)
+<img src=".libauc.png" width="85%" />
+<figcaption>LibAUC.org</figcaption>
+
+ <table border="0">
+<tr>
+    <td>
+    <img src=".libauc.png" width="75%" />
+      <figcaption>  </figcaption>
+    </td>
+</tr>
+</table>
 
 Description
 -----------
