@@ -2,10 +2,6 @@ LibAUC
 ======
 <img src="libauc.png" width="50%"/>
 
-
-
-Description
------------
 An end-to-end machine learning library for auc optimization.
 
 Why is LibAUC?
