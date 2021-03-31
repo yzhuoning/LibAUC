@@ -2,17 +2,10 @@
 
 LibAUC
 ======
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 <img src=".libauc.png" width="85%" />
 <figcaption>LibAUC.org</figcaption>
-
- <table border="0">
-<tr>
-    <td>
-    <img src=".libauc.png" width="75%" />
-      <figcaption>  </figcaption>
-    </td>
-</tr>
-</table>
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 Description
 -----------
