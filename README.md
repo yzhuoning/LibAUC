@@ -1,5 +1,3 @@
-.. -*- mode: md -*- ..
-
 LibAUC
 ======
 <img src="libauc.png" width="50%"/>
