@@ -9,7 +9,7 @@ LibAUC
 </tr>
 
 <p align="center">
-  <img src="src="libauc.png" width="50%" align="center"/>
+  <img src="libauc.png" width="50%" align="center"/>
 </p>
 
 
