@@ -1,4 +1,4 @@
-.. -*- mode: md -*-
+.. -*- mode: md -*- ..
 
 LibAUC
 ======
