@@ -1,10 +1,9 @@
 LibAUC
 ======
-
+An end-to-end machine learning library for auc optimization.
 
 <p align="center">
   <img src="libauc.png" width="50%" align="center"/>
-   <p align="center"`>An end-to-end machine learning library for auc optimization.</p>
 </p>
 
 
