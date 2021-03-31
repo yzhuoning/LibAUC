@@ -1,8 +1,9 @@
-.. -*- mode: rst -*-
+.. -*- mode: md -*-
 
 LibAUC
 ======
-<img src="libauc.png" width="85%" />
+<img src="libauc.png" width="50%"/>
+
 
 
 Description
