@@ -12,9 +12,9 @@ Why is LibAUC?
 ---------------
 Deep AUC Maximization (DAM) is a paradigm for learning a deep neural network by maximizing the AUC score of the model on a dataset. There are several benefits of maximizing AUC score over minimizing the standard losses, e.g., cross-entropy.
 
-- In many domains (e.g., medical diagonosis) the AUC score is the default metric for evaluating and comparing different methods. Directly maximizing AUC score can potentially lead to the largest improvement in the model’s performance.Many real-world datasets are usually imbalanced (e.g., the number of malignant cases is usually much less than benign cases). AUC is more suitable for handling imbalanced data distribution since maximizing AUC aims to rank the predication score of any positive data higher than any negative data
-- Many real-world datasets are usually imbalanced (e.g., the number of malignant cases is usually much less than benign cases). AUC is more suitable for handling imbalanced data distribution since maximizing AUC aims to rank the predication score of any positive data higher than any negative data
-- 
+- In many domains, AUC score is the default metric for evaluating and comparing different methods. Directly maximizing AUC score can potentially lead to the largest improvement in the model’s performance.
+- Many real-world datasets are usually imbalanced . AUC is more suitable for handling imbalanced data distribution since maximizing AUC aims to rank the predication score of any positive data higher than any negative data
+
 Original Links
 --------------
 
