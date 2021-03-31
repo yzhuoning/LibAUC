@@ -3,12 +3,15 @@ LibAUC
 
 <tr>
     <td>
-<img src="libauc.png" width="50%"/>
+<img class="center" src="libauc.png" width="50%"/>
 <figcaption>An end-to-end machine learning library for auc optimization.</figcaption>
     </td>
 </tr>
 
-![An end-to-end machine learning library for auc optimization](libauc.png)
+<p align="center">
+  <img src="src="libauc.png" width="50%" align="center"/>
+</p>
+
 
 Why is LibAUC?
 ---------------
