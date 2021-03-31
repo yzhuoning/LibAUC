@@ -3,6 +3,8 @@
 LibAUC
 ======
 
+
+
 Description
 -----------
 An end-to-end machine learning library for auc optimization.
@@ -20,11 +22,6 @@ Original Links
 -  Repository: https://github.com/yzhuoning/libauc
 -  Library website: https://libauc.org
 
-Purpose of this package
------------------------
-
-The idea behind this package is to use the same code as in
-https://github.com/yzhuoning/libauc using the very convenient pip command
 
 How to install
 --------------
@@ -36,20 +33,19 @@ How to install
 Example
 -------
 
-1. Download https://github.com/cjlin1/libsvm/blob/master/heart_scale
-   file.
+1. Download the required datasets.
 2. Run the following commands
 
 ::
 
    >>> ...
-   >>>Losss = AUCMLoss(imratio=imratio)
-   >>>optimizer = PESG(model, a=Loss.a, b=Loss.b, alpha=Loss.alpha, imratio=0.1, lr=lr, gamma=500, weight_decay=1e-5)
-   >>>...
-   >>>loss = Loss(y_pred, targets)
-   >>>optimizer.zero_grad()
-   >>>loss.backward(retain_graph=True)
-   >>>optimizer.step()
+   >>> Losss = AUCMLoss(imratio=imratio)
+   >>> optimizer = PESG(model, a=Loss.a, b=Loss.b, alpha=Loss.alpha, imratio=0.1, lr=lr, gamma=500, weight_decay=1e-5)
+   >>> ...
+   >>> loss = Loss(y_pred, targets)
+   >>> optimizer.zero_grad()
+   >>> loss.backward(retain_graph=True)
+   >>> optimizer.step()
         
 
 Copyright
@@ -60,6 +56,6 @@ Apache License 2.0
 Maintainer
 ----------
 
--  Zhuoning Yuan  `yzhuoning@gmail.com`_
+-  Zhuoning Yuan  `yzhuoning@gmail.com`
 
 .. yzhuoning@gmail.com: yzhuoning@gmail.com
