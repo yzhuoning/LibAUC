@@ -1,3 +1,5 @@
+
+
 <p align="center">
   <img src="libauc.png" width="50%" align="center"/>
 </p>
@@ -34,17 +36,19 @@ Example
 1. Download the required datasets.
 2. Run the following commands
 
-::
-
-   >>> ...
-   >>> Losss = AUCMLoss(imratio=imratio)
-   >>> optimizer = PESG(model, a=Loss.a, b=Loss.b, alpha=Loss.alpha, imratio=0.1, lr=lr, gamma=500, weight_decay=1e-5)
-   >>> ...
-   >>> loss = Loss(y_pred, targets)
-   >>> optimizer.zero_grad()
-   >>> loss.backward(retain_graph=True)
-   >>> optimizer.step()
-        
+```shell
+$ python
+```
+```python
+>>> ...
+>>> Losss = AUCMLoss(imratio=imratio)
+>>> optimizer = PESG(model, a=Loss.a, b=Loss.b, alpha=Loss.alpha, imratio=0.1, lr=lr, gamma=500, weight_decay=1e-5)
+>>> ...
+>>> loss = Loss(y_pred, targets)
+>>> optimizer.zero_grad()
+>>> loss.backward(retain_graph=True)
+>>> optimizer.step()
+```
 
 Copyright
 ---------
