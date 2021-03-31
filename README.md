@@ -2,8 +2,7 @@
 
 LibAUC
 ======
-
-
+![libauc.org](libauc.png)
 
 Description
 -----------
