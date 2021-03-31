@@ -1,15 +1,10 @@
 LibAUC
 ======
 
-<tr>
-    <td>
-<img class="center" src="libauc.png" width="50%"/>
-<figcaption>An end-to-end machine learning library for auc optimization.</figcaption>
-    </td>
-</tr>
 
 <p align="center">
   <img src="libauc.png" width="50%" align="center"/>
+   <p align="center"`>An end-to-end machine learning library for auc optimization.</p>
 </p>
 
 
