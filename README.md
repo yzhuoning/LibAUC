@@ -58,5 +58,3 @@ Maintainer
 ----------
 
 -  Zhuoning Yuan  `yzhuoning@gmail.com`
-
-.. yzhuoning@gmail.com: yzhuoning@gmail.com
