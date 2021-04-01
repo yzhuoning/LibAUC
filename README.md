@@ -49,10 +49,21 @@ $ python
 >>> optimizer.step()
 ```
 
+Citation
+---------
+If you use libauc in your work, please cite the following paper:
+```
+@article{yuan2020robust,
+title={Robust Deep AUC Maximization: A New Surrogate Loss and Empirical Studies on Medical Image Classification},
+author={Yuan, Zhuoning and Yan, Yan and Sonka, Milan and Yang, Tianbao},
+journal={arXiv preprint arXiv:2012.03173},
+year={2020}
+}
+```
+
 Copyright
 ---------
 Apache License 2.0
-
 
 Author
 ----------
