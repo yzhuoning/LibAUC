@@ -54,7 +54,7 @@ Copyright
 Apache License 2.0
 
 
-Maintainer
+Author
 ----------
 
 -  Zhuoning Yuan  `yzhuoning@gmail.com`
