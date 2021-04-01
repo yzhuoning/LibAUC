@@ -41,7 +41,7 @@ $ python
 ```python
 >>> ...
 >>> Losss = AUCMLoss(imratio=imratio)
->>> optimizer = PESG(model, a=Loss.a, b=Loss.b, alpha=Loss.alpha, imratio=0.1, lr=lr, gamma=500, weight_decay=1e-5)
+>>> optimizer = PESG(model, a=Loss.a, b=Loss.b, alpha=Loss.alpha, imratio=0.1, lr=0.1, margin=0.9, gamma=500, weight_decay=1e-5)
 >>> ...
 >>> loss = Loss(y_pred, targets)
 >>> optimizer.zero_grad()
