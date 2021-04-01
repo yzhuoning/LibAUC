@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css'>
+    <link rel="stylesheet" href="../../assets/css/slider.css">
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../assets/css/card-grid.css">
+    <link rel="stylesheet" href="../../assets/css/button.css">
+	<link rel="stylesheet" href="../../assets/css/news_feed.css">
+	<link rel="stylesheet" href="../../assets/css/neural_network.css">
+	<link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="shortcut icon" href="../../assets/img/auc_v2-removebg.png">
+	
+
+	<title>LibAUC| An open source machine learning framework for optimizing AUC.</title>
+	
+</head>
+
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container" >
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a class="navbar-brand" href="../">
+                <span><img class='center' src="../../assets/img/auc_log_v4.png" style="height: 90px; width: auto;margin-right: 40px" alt="Logo"></span> 
+            </a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li ><a class="custom-btn-2 btn-2" href="../../get-started/" style="margin-right: 10px; margin-left: 10px; font-size:20px; color:black; text-align:center; "><span>Get Started</span></a></li>
+                <li ><a class="custom-btn-2 btn-2" href="../../tutorials/" style="margin-right: 10px;  margin-left: 10px; font-size: 20px; color:black;text-align:center;"><span>Tutorials</span></a></li>
+                <li ><a class="custom-btn-2 btn-2" href="../../" style="margin-right: 10px; margin-left: 10px; font-size: 20px;color:black;text-align:center;"><span>Datasets</span></a></li>
+                <li ><a class="custom-btn-2 btn-2" href="../../publications/" style="margin-right: 10px; margin-left: 10px; font-size: 20px;color:black;text-align:center;"><span>Research</span></a></li>
+                <li ><a class="custom-btn-2 btn-2" href="../../teams/" style="margin-right: 10px; margin-left: 10px; font-size: 20px;color:black;text-align:center;"><span>Team</span></a></li>
+                <li ><a class="custom-btn-2 btn-2" href="https://github.com/yzhuoning" style="margin-right: 10px; margin-left: 10px; font-size: 20px;color:black;text-align:center;"><span>Github</span></a></li>
+            </ul>
+   
+        </div>
+    </div>
+</nav>
+
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            <div class="header-container jumbotron">
+
+    <div class="container">
+        <br><br>
+        <h1 class=""> <strong>TUTORIALS </strong></p>
+		<p>Learning LibAUC with examples</p>
+    </div>
+		</div>
+
+</div>
+
+
+<div class="container">
+	<div class="row">
+      
+	 
+	 <!-- partial -->
+	 <h4> Training Imbalanced CIFAR10 with ResNet18 in Pytorch </h4>
+
+
+
+
+<pre style="margin: 0; line-height: 125%"><span style="color: #408080; font-style: italic"># -*- coding: utf-8 -*-</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">libauc.losses</span> <span style="color: #008000; font-weight: bold">import</span> AUCMLoss
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">libauc.optimizers</span> <span style="color: #008000; font-weight: bold">import</span> PESG
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">libauc.models</span> <span style="color: #008000; font-weight: bold">import</span> ResNet18
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">libauc.datasets</span> <span style="color: #008000; font-weight: bold">import</span> CIFAR10
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">libauc.datasets</span> <span style="color: #008000; font-weight: bold">import</span> imbalance_generator 
+
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">torch</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">PIL</span> <span style="color: #008000; font-weight: bold">import</span> Image
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+<span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">torchvision.transforms</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">transforms</span>
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">torch.utils.data</span> <span style="color: #008000; font-weight: bold">import</span> Dataset
+<span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">sklearn.metrics</span> <span style="color: #008000; font-weight: bold">import</span> roc_auc_score
+
+<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">set_all_seeds</span>(SEED):
+    <span style="color: #408080; font-style: italic"># REPRODUCIBILITY</span>
+    torch<span style="color: #666666">.</span>manual_seed(SEED)
+    np<span style="color: #666666">.</span>random<span style="color: #666666">.</span>seed(SEED)
+    torch<span style="color: #666666">.</span>backends<span style="color: #666666">.</span>cudnn<span style="color: #666666">.</span>deterministic <span style="color: #666666">=</span> <span style="color: #008000">True</span>
+    torch<span style="color: #666666">.</span>backends<span style="color: #666666">.</span>cudnn<span style="color: #666666">.</span>benchmark <span style="color: #666666">=</span> <span style="color: #008000">False</span>
+
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">ImageDataset</span>(Dataset):
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__init__</span>(<span style="color: #008000">self</span>, images, targets, mode<span style="color: #666666">=</span><span style="color: #BA2121">&#39;train&#39;</span>):
+       <span style="color: #008000">self</span><span style="color: #666666">.</span>images <span style="color: #666666">=</span> images<span style="color: #666666">.</span>astype(np<span style="color: #666666">.</span>uint8)
+       <span style="color: #008000">self</span><span style="color: #666666">.</span>targets <span style="color: #666666">=</span> targets
+       <span style="color: #008000">self</span><span style="color: #666666">.</span>mode <span style="color: #666666">=</span> mode
+       <span style="color: #008000">self</span><span style="color: #666666">.</span>transform_train <span style="color: #666666">=</span> transforms<span style="color: #666666">.</span>Compose([
+                              transforms<span style="color: #666666">.</span>RandomCrop((<span style="color: #666666">30</span>, <span style="color: #666666">30</span>), padding<span style="color: #666666">=</span><span style="color: #008000">None</span>),
+                              transforms<span style="color: #666666">.</span>RandomHorizontalFlip(),
+                              transforms<span style="color: #666666">.</span>Resize((<span style="color: #666666">32</span>, <span style="color: #666666">32</span>)),
+                              transforms<span style="color: #666666">.</span>ToTensor(),
+                              ])
+       <span style="color: #008000">self</span><span style="color: #666666">.</span>transform_test <span style="color: #666666">=</span> transforms<span style="color: #666666">.</span>Compose([
+                             transforms<span style="color: #666666">.</span>Resize((<span style="color: #666666">32</span>, <span style="color: #666666">32</span>)),
+                             transforms<span style="color: #666666">.</span>ToTensor(),
+                              ])
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__len__</span>(<span style="color: #008000">self</span>):
+        <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">len</span>(<span style="color: #008000">self</span><span style="color: #666666">.</span>images)
+
+    <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">__getitem__</span>(<span style="color: #008000">self</span>, idx):
+        image <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>images[idx]
+        target <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>targets[idx]
+        image <span style="color: #666666">=</span> Image<span style="color: #666666">.</span>fromarray(image<span style="color: #666666">.</span>astype(<span style="color: #BA2121">&#39;uint8&#39;</span>))
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>mode <span style="color: #666666">==</span> <span style="color: #BA2121">&#39;train&#39;</span>:
+            image <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>transform_train(image)
+        <span style="color: #008000; font-weight: bold">else</span>:
+            image <span style="color: #666666">=</span> <span style="color: #008000">self</span><span style="color: #666666">.</span>transform_test(image)
+        <span style="color: #008000; font-weight: bold">return</span> image, target
+
+
+
+<span style="color: #408080; font-style: italic"># paramaters</span>
+SEED <span style="color: #666666">=</span> <span style="color: #666666">123</span>
+BATCH_SIZE <span style="color: #666666">=</span> <span style="color: #666666">128</span>
+imratio <span style="color: #666666">=</span> <span style="color: #666666">0.1</span>
+lr <span style="color: #666666">=</span> <span style="color: #666666">0.1</span>
+gamma<span style="color: #666666">=</span> <span style="color: #666666">500</span>
+weight_decay <span style="color: #666666">=</span> <span style="color: #666666">1e-4</span>
+
+<span style="color: #408080; font-style: italic"># dataloader </span>
+(train_data, train_label), (test_data, test_label) <span style="color: #666666">=</span> CIFAR10()
+(train_images, train_labels) <span style="color: #666666">=</span> imbalance_generator(train_data, 
+                                                   train_label, 
+                                                   imratio<span style="color: #666666">=</span>imratio, 
+                                                   shuffle<span style="color: #666666">=</span><span style="color: #008000">True</span>, 
+                                                   random_seed<span style="color: #666666">=</span>SEED)
+(test_images, test_labels) <span style="color: #666666">=</span> imbalance_generator(test_data, 
+                                                 test_label, 
+                                                 is_balanced<span style="color: #666666">=</span><span style="color: #008000">True</span>,  
+                                                 random_seed<span style="color: #666666">=</span>SEED)
+trainloader <span style="color: #666666">=</span> torch<span style="color: #666666">.</span>utils<span style="color: #666666">.</span>data<span style="color: #666666">.</span>DataLoader(ImageDataset(train_images, train_labels), 
+                                          batch_size<span style="color: #666666">=</span>BATCH_SIZE, 
+                                          shuffle<span style="color: #666666">=</span><span style="color: #008000">True</span>, 
+                                          num_workers<span style="color: #666666">=2</span>, 
+                                          pin_memory<span style="color: #666666">=</span><span style="color: #008000">True</span>, 
+                                          drop_last<span style="color: #666666">=</span><span style="color: #008000">True</span>)
+testloader <span style="color: #666666">=</span> torch<span style="color: #666666">.</span>utils<span style="color: #666666">.</span>data<span style="color: #666666">.</span>DataLoader( ImageDataset(test_images, test_labels), 
+                                         batch_size<span style="color: #666666">=</span>BATCH_SIZE, 
+                                         shuffle<span style="color: #666666">=</span><span style="color: #008000">False</span>, 
+                                         num_workers<span style="color: #666666">=2</span>,  
+                                         pin_memory<span style="color: #666666">=</span><span style="color: #008000">True</span>)
+
+
+<span style="color: #408080; font-style: italic"># models &amp; optimizer</span>
+model <span style="color: #666666">=</span> ResNet18(pretrained<span style="color: #666666">=</span><span style="color: #008000">False</span>)
+model <span style="color: #666666">=</span> model<span style="color: #666666">.</span>cuda()
+Loss <span style="color: #666666">=</span> AUCMLoss(imratio<span style="color: #666666">=</span>imratio)
+optimizer <span style="color: #666666">=</span> PESG(model, a<span style="color: #666666">=</span>Loss<span style="color: #666666">.</span>a, b<span style="color: #666666">=</span>Loss<span style="color: #666666">.</span>b, alpha<span style="color: #666666">=</span>Loss<span style="color: #666666">.</span>alpha, imratio<span style="color: #666666">=</span>lr, lr<span style="color: #666666">=</span>lr, gamma<span style="color: #666666">=</span>gamma, weight_decay<span style="color: #666666">=</span>weight_decay)
+
+
+<span style="color: #008000; font-weight: bold">for</span> epoch <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">100</span>):
+    
+     <span style="color: #008000; font-weight: bold">if</span> epoch <span style="color: #666666">==</span> <span style="color: #666666">50</span> <span style="color: #AA22FF; font-weight: bold">or</span> epoch<span style="color: #666666">==75</span>:
+         optimizer<span style="color: #666666">.</span>lr <span style="color: #666666">=</span>optimizer.lr<span style="color: #666666">/10</span>
+         optimizer<span style="color: #666666">.</span>update_regularizer()
+   
+     <span style="color: #408080; font-style: italic"># training</span>
+     train_pred <span style="color: #666666">=</span> []
+     train_true <span style="color: #666666">=</span> []
+     model<span style="color: #666666">.</span>train()    
+     <span style="color: #008000; font-weight: bold">for</span> data, targets <span style="color: #AA22FF; font-weight: bold">in</span> trainloader:
+         data, targets  <span style="color: #666666">=</span> data<span style="color: #666666">.</span>cuda(), targets<span style="color: #666666">.</span>cuda()
+         y_pred <span style="color: #666666">=</span> model(data)
+         loss <span style="color: #666666">=</span> Loss(y_pred, targets)
+         optimizer<span style="color: #666666">.</span>zero_grad()
+         loss<span style="color: #666666">.</span>backward(retain_graph<span style="color: #666666">=</span><span style="color: #008000">True</span>)
+         optimizer<span style="color: #666666">.</span>step()
+        
+         train_pred<span style="color: #666666">.</span>append(y_pred<span style="color: #666666">.</span>cpu()<span style="color: #666666">.</span>detach()<span style="color: #666666">.</span>numpy())
+         train_true<span style="color: #666666">.</span>append(targets<span style="color: #666666">.</span>cpu()<span style="color: #666666">.</span>detach()<span style="color: #666666">.</span>numpy())
+
+     train_true <span style="color: #666666">=</span> np<span style="color: #666666">.</span>concatenate(train_true)
+     train_pred <span style="color: #666666">=</span> np<span style="color: #666666">.</span>concatenate(train_pred)
+     train_auc <span style="color: #666666">=</span> roc_auc_score(train_true, train_pred) 
+
+     <span style="color: #408080; font-style: italic"># validation</span>
+     model<span style="color: #666666">.</span>eval()
+     test_pred <span style="color: #666666">=</span> []
+     test_true <span style="color: #666666">=</span> [] 
+     <span style="color: #008000; font-weight: bold">for</span> j, data <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">enumerate</span>(testloader):
+         test_data, test_targets <span style="color: #666666">=</span> data
+         test_data <span style="color: #666666">=</span> test_data<span style="color: #666666">.</span>cuda()
+         y_pred <span style="color: #666666">=</span> model(test_data)
+         test_pred<span style="color: #666666">.</span>append(y_pred<span style="color: #666666">.</span>cpu()<span style="color: #666666">.</span>detach()<span style="color: #666666">.</span>numpy())
+         test_true<span style="color: #666666">.</span>append(test_targets<span style="color: #666666">.</span>numpy())
+     test_true <span style="color: #666666">=</span> np<span style="color: #666666">.</span>concatenate(test_true)
+     test_pred <span style="color: #666666">=</span> np<span style="color: #666666">.</span>concatenate(test_pred)
+     val_auc <span style="color: #666666">=</span>  roc_auc_score(test_true, test_pred) 
+     model<span style="color: #666666">.</span>train()
+   
+     <span style="color: #408080; font-style: italic"># print results</span>
+     <span style="color: #008000; font-weight: bold">print</span>(<span style="color: #BA2121">&quot;epoch: {}, train_auc:{:4f}, test_auc:{:4f}&quot;</span><span style="color: #666666">.</span>format(epoch, train_auc, val_auc, ))          
+</pre></div>
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+
+</div>
+
+
+<footer class="mainfooter" role="contentinfo">
+  <div class="footer-middle">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+	  
+	  
+        <!--Column1-->
+        <div class="footer-pad">
+          <img class='center' src="../../assets/img/auc_log_v4.png" style="height: 90px; width: auto;margin-top: 20%" alt="Logo">
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+	  
+	  
+        <!--Column1-->
+        <div class="footer-pad">
+          <h4 style="font-weight:bold;">Quick Links</h4>
+          <ul class="list-unstyled">
+            <li><a href="../../get-started/">Get Started</a></li>
+            <li><a href="../../news/">Latest News</a></li>
+            <li><a href="../../publications/">Research</a></li>
+			<li><a href="../../teams/">About Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <!--Column1-->
+        <div class="footer-pad">
+          <h4 style="font-weight:bold;">Resources</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">Datasets</a></li>
+			<li><a href="../../tutorials/">Tutorials</a></li>
+            <li><a href="https://github.com/yzhuoning/">Github</a></li>
+            <li>
+              <a href="#"></a>
+            </li>
+          </ul>
+        </div>`
+      </div>
+    	<div class="col-md-3">
+    		<h4 style="font-weight:bold;">Contact Us</h4>
+            <ul class="social-network social-circle">
+             <li><a href="mailto:zhuoning-yuan@uiowa.edu" class="" title="Email"><i class="fa fa-envelope"></i></a></li>
+			 <li><a href="https://homepage.divms.uiowa.edu/~zhuoning/" class="" title="Author"><i class="fa fa-graduation-cap"></i></a></li>
+             <li><a href="https://homepage.cs.uiowa.edu/~tyng/" class="" title="Group"><i class="fa fa-group"></i></a></li>
+            </ul>		
+		
+		</div>
+    </div>
+	<div class="row">
+		<div class="col-md-12 copy">
+			<p class="text-center">&copy; Copyright 2021 - LibAUC.org.  All rights reserved.</p>
+		</div>
+	</div>
+
+
+  </div>
+  </div>
+</footer>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js'></script>
+<script  src="../../assets/js/script.js"></script>
+<script  src="../../assets/js/echarts.js"></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/95368/echarts-en.min-421rc1.js'></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/95368/echarts-wordcloud2.min.js'></script>
+
+
+<script  src="../../assets/news-card/script.js"></script>
+
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="../assets/js/bootstrap.min.js "></script>
+<script src="../assets/js/typeahead.bundle.min.js "></script>
+<p hidden><script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=NMkhbiq5txPAPA65bQhR1K4aZr--wujVX48XSYEGT6c&cl=ffffff&w=a"></script></p>
+
+<script src="../../assets/js/main.js "></script>
+
+</body>
+
+</html>
