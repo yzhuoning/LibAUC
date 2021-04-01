@@ -31,16 +31,14 @@ $ pip install libauc
 
 Example
 -------
-
-1. Download the required datasets.
-2. Run the following commands
+Plase run the following commands or check the demo code 'train_cifar10_demo.ipynb'.
 
 ```shell
 $ python
 ```
 ```python
 >>> ...
->>> Losss = AUCMLoss(imratio=imratio)
+>>> Losss = AUCMLoss(imratio=0.1)
 >>> optimizer = PESG(model, a=Loss.a, b=Loss.b, alpha=Loss.alpha, imratio=0.1, lr=0.1, margin=0.9, gamma=500, weight_decay=1e-5)
 >>> ...
 >>> loss = Loss(y_pred, targets)
