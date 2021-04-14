@@ -37,14 +37,33 @@ Plase run the following commands or check the example code `train_cifar10_demo.i
 $ python
 ```
 ```python
->>> ...
->>> Losss = AUCMLoss(imratio=0.1)
->>> optimizer = PESG(model, a=Loss.a, b=Loss.b, alpha=Loss.alpha, imratio=0.1, lr=0.1, margin=0.9, gamma=500, weight_decay=1e-5)
->>> ...
->>> loss = Loss(y_pred, targets)
->>> optimizer.zero_grad()
->>> loss.backward(retain_graph=True)
->>> optimizer.step()
+>>> #import library
+>>> from libauc.losses import AUCMLoss
+>>> from libauc.optimizers import PESG
+...
+>>> #define loss
+>>> model = model.cuda()
+>>> Loss = AUCMLoss()
+>>> optimizer = PESG(imratio=0.1)
+...
+>>> #training
+>>> model.train()    
+>>> for data, targets in trainloader:
+>>>	data, targets  = data.cuda(), targets.cuda()
+        preds = model(data)
+        loss = Loss(preds, targets)
+        optimizer.zero_grad()
+        loss.backward(retain_graph=True)
+        optimizer.step()
+>>> #restart stage
+>>> optimizer.update_regularizer()		
+...   
+>>> #evaluation
+>>> model.eval()    
+>>> for data, targets in testloader:
+	data, targets  = data.cuda(), targets.cuda()
+        preds = model(data)
+
 ```
 
 Citation
