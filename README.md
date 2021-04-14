@@ -55,6 +55,7 @@ $ python
         optimizer.zero_grad()
         loss.backward(retain_graph=True)
         optimizer.step()
+...	
 >>> #restart stage
 >>> optimizer.update_regularizer()		
 ...   
