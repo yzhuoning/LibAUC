@@ -31,7 +31,7 @@ $ pip install libauc
 
 Example
 -------
-Plase run the following commands or check the demo code `train_cifar10_demo.ipynb`.
+Plase run the following commands or check the example code `train_cifar10_demo.ipynb`.
 
 ```shell
 $ python
@@ -61,7 +61,7 @@ year={2020}
 
 Contact 
 ----------
-Please report issues/bugs to `yzhuoning@gmail.com`
+For inquiries, please reach out to `yzhuoning@gmail.com`
 
 
 Copyright
