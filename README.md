@@ -6,7 +6,7 @@
 
 LibAUC
 ======
-An end-to-end machine learning library for auc optimization.
+An end-to-end machine learning library to directly optimize AUC loss.
 
 
 Why is LibAUC?
