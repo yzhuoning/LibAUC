@@ -1,5 +1,3 @@
-
-
 <p align="center">
   <img src="libauc.png" width="50%" align="center"/>
 </p>
