@@ -81,4 +81,4 @@ year={2020}
 
 Contact
 ----------
-If you have any questions, please contact us @ Zhuoning Yuan [yzhuoning@gmail.com] and Tianbao Yang [tianbao-yang@uiowa.edu] or please open an new issue in the Github. 
+If you have any questions, please contact us @ Zhuoning Yuan [yzhuoning@gmail.com] and Tianbao Yang [tianbao-yang@uiowa.edu] or please open a new issue in the Github. 
