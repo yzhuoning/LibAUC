@@ -29,10 +29,10 @@ $ pip install libauc
 Usage
 -------
 ### Official Tutorials:
-- 01.Creating Imbalanced Benchmark Datasets ([Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/01_Creating_Imbalanced_Benchmark_Datasets.ipynb))
-- 02.Training ResNet20 with Imbalanced CIFAR10 ([Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/02_Training_ResNet20_with_Imbalanced_CIFAR10.ipynb))
-- 03.Training with Pytorch Learning Rate Scheduling ([Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/03_Training_with_Pytorch_Learning_Rate_Scheduling.ipynb))
-- 04.Training with Imbalanced Datasets on Distributed Setting ([Coming soon]())
+- 01.Creating Imbalanced Benchmark Datasets [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/01_Creating_Imbalanced_Benchmark_Datasets.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
+- 02.Training ResNet20 with Imbalanced CIFAR10 [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/02_Training_ResNet20_with_Imbalanced_CIFAR10.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
+- 03.Training with Pytorch Learning Rate Scheduling [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/03_Training_with_Pytorch_Learning_Rate_Scheduling.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
+- 04.Training with Imbalanced Datasets on Distributed Setting [[Coming soon]()]
 
 ### Quickstart for beginner:
 ```python
@@ -49,7 +49,7 @@ Usage
 >>> for data, targets in trainloader:
 >>>	data, targets  = data.cuda(), targets.cuda()
         preds = model(data)
-        loss = Loss(preds, targets)
+        loss = Loss(preds, targets) 
         optimizer.zero_grad()
         loss.backward(retain_graph=True)
         optimizer.step()
