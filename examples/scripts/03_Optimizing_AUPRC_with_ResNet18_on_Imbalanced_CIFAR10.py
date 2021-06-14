@@ -10,7 +10,6 @@ from libauc.datasets import ImbalanceGenerator, ImbalanceSampler
 
 import torchvision.transforms as transforms
 from torch.utils.data import Dataset
-from sklearn.metrics import roc_auc_score
 from sklearn.metrics import average_precision_score
 import numpy as np
 import torch
@@ -112,7 +111,6 @@ for epoch in range(64):
 
     train_true = np.concatenate(train_true)
     train_pred = np.concatenate(train_pred)
-    train_auc = roc_auc_score(train_true, train_pred) 
     train_prc = average_precision_score(train_true, train_pred)
 
     model.eval()
@@ -127,8 +125,6 @@ for epoch in range(64):
         test_true.append(test_targets.numpy())
     test_true = np.concatenate(test_true)
     test_pred = np.concatenate(test_pred)
-     
-    val_auc =  roc_auc_score(test_true, test_pred) 
     val_prc = average_precision_score(test_true, test_pred)
     
     model.train()
