@@ -1,6 +1,6 @@
 """
 Author: Zhuoning Yuan, Qi Qi
-Contact: yzhuoning@gmail.com
+Contact: yzhuoning@gmail.com, qi-qi@uiowa.edu
 """
 from libauc.losses import SOAPLoss
 from libauc.optimizers import SGD
