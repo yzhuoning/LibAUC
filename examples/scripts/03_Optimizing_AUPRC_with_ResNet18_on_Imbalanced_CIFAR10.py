@@ -16,7 +16,6 @@ import numpy as np
 import torch
 from PIL import Image
 
-"""# **Reproducibility**"""
 
 def set_all_seeds(SEED):
     # REPRODUCIBILITY
@@ -25,7 +24,6 @@ def set_all_seeds(SEED):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
-"""# **Image Dataset**"""
 
 class ImageDataset(Dataset):
     def __init__(self, images, targets, image_size=32, crop_size=30, mode='train'):
@@ -33,15 +31,15 @@ class ImageDataset(Dataset):
        self.targets = targets
        self.mode = mode
        self.transform_train = transforms.Compose([                                                
-                              transforms.ToTensor(),
-                              transforms.RandomCrop((crop_size, crop_size), padding=None),
+                              transforms.RandomCrop(image_size, padding=4),
                               transforms.RandomHorizontalFlip(),
-                              transforms.Resize((image_size, image_size)),
+                              transforms.ToTensor(),
+                              transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
                               
                               ])
        self.transform_test = transforms.Compose([
-                             transforms.ToTensor(),
-                             transforms.Resize((image_size, image_size)),
+                              transforms.ToTensor(),
+                              transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
                               ])
     def __len__(self):
         return len(self.images)
@@ -56,7 +54,6 @@ class ImageDataset(Dataset):
             image = self.transform_test(image)
         return idx, image, target
 
-"""# **Paramaters**"""
 
 # paramaters
 imratio = 0.02
@@ -68,7 +65,6 @@ margin = 0.5
 gamma = 0.99
 posNum = 1
 
-"""# **Loading datasets**"""
 
 # dataloader 
 (train_data, train_label), (test_data, test_label) = CIFAR10()
@@ -79,7 +75,6 @@ train_dataset = ImageDataset(train_images, train_labels)
 test_dataset = ImageDataset(test_images, test_labels, mode='test')
 testloader = torch.utils.data.DataLoader(test_dataset , batch_size=BATCH_SIZE, shuffle=False, num_workers=1,  pin_memory=True)
 
-"""# **Creating models & AUC Optimizer**"""
 
 set_all_seeds(456)
 model = ResNet18(pretrained=False, last_activation=None)  # last_activation=False: don't include sigmoid function in the last layer
@@ -87,8 +82,6 @@ model = model.cuda()
 
 Loss = SOAPLoss(margin=margin, gamma=gamma, data_len=train_labels.shape[0])
 optimizer = SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
-
-"""# **Training**"""
 
 # training 
 model.train()
