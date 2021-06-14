@@ -1,4 +1,7 @@
-!pip install libauc
+"""
+Author: Zhuoning Yuan
+Contact: yzhuoning@gmail.com
+"""
 
 from libauc.datasets import CIFAR10
 (train_data, train_label), (test_data, test_label) = CIFAR10()
