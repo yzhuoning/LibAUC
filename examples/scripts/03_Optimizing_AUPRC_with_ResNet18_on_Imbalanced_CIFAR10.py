@@ -80,7 +80,7 @@ set_all_seeds(456)
 model = ResNet18(pretrained=False, last_activation=None) 
 model = model.cuda()
 
-# SOAPLoss requires ImbalanceSampler with pos_num>1!
+# SOAPLoss requires ImbalanceSampler with pos_num>=1!
 Loss = SOAPLoss(margin=margin, gamma=gamma, data_len=train_labels.shape[0])
 optimizer = SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
 
