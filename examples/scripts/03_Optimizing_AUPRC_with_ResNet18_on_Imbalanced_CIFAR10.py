@@ -80,7 +80,7 @@ set_all_seeds(456)
 model = ResNet18(pretrained=False, last_activation=None) 
 model = model.cuda()
 
-# SOAPLoss requires ImbalanceSampler with pos_num>=1!
+# SOAPLoss requires ImbalanceSampler() with pos_num>=1!
 Loss = SOAPLoss(margin=margin, gamma=gamma, data_len=train_labels.shape[0])
 optimizer = SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
 
@@ -102,13 +102,12 @@ for epoch in range(64):
     for idx, (index, data, targets) in enumerate(trainloader):
         data, targets  = data.cuda(), targets.cuda()
         y_pred = model(data)
-        predScore = torch.sigmoid(y_pred)
-
-        loss = Loss(predScore, targets, index_s=index)
+        y_prob = torch.sigmoid(y_pred)
+        loss = Loss(y_prob, targets, index_s=index)
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-        train_pred.append(predScore.cpu().detach().numpy())
+        train_pred.append(y_prob.cpu().detach().numpy())
         train_true.append(targets.cpu().detach().numpy())
 
     train_true = np.concatenate(train_true)
@@ -123,13 +122,15 @@ for epoch in range(64):
         _, test_data, test_targets = data
         test_data = test_data.cuda()
         y_pred = model(test_data)
-        y_pred = torch.sigmoid(y_pred)
-        test_pred.append(y_pred.cpu().detach().numpy())
+        y_prob = torch.sigmoid(y_pred)
+        test_pred.append(y_prob.cpu().detach().numpy())
         test_true.append(test_targets.numpy())
     test_true = np.concatenate(test_true)
     test_pred = np.concatenate(test_pred)
      
     val_auc =  roc_auc_score(test_true, test_pred) 
     val_prc = average_precision_score(test_true, test_pred)
+    
     model.train()
     print("epoch: {}, train_loss: {:4f}, train_ap:{:4f}, test_ap:{:4f},  lr:{:4f}".format(epoch, loss.item(), train_prc, val_prc,  optimizer.param_groups[0]['lr'] ))
+    
