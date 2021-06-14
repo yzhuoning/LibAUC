@@ -1,4 +1,7 @@
-!pip install libauc
+"""
+Author: Zhuoning Yuan
+Contact: yzhuoning@gmail.com
+"""
 
 from libauc.losses import AUCMLoss
 from libauc.optimizers import PESG
