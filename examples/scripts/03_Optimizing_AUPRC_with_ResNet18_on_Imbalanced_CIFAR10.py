@@ -2,7 +2,7 @@
 Author: Zhuoning Yuan, Qi Qi
 Contact: yzhuoning@gmail.com, qi-qi@uiowa.edu
 """
-from libauc.losses import SOAPLoss
+from libauc.losses import APLoss_SH
 from libauc.optimizers import SGD
 from libauc.models import ResNet18
 from libauc.datasets import CIFAR10
@@ -79,8 +79,8 @@ set_all_seeds(456)
 model = ResNet18(pretrained=False, last_activation=None) 
 model = model.cuda()
 
-# SOAPLoss requires ImbalanceSampler() with pos_num>=1!
-Loss = SOAPLoss(margin=margin, gamma=gamma, data_len=train_labels.shape[0])
+# APLoss_SH requires ImbalanceSampler() with pos_num>=1!
+Loss = APLoss_SH(margin=margin, gamma=gamma, data_len=train_labels.shape[0])
 optimizer = SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
 
 # training 
