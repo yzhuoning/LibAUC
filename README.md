@@ -64,11 +64,11 @@ Usage
 #### Optimizing AUPRC (Area Under the Precision-Recall Curve)
 ```python
 >>> #import library
->>> from libauc.losses import SOAPLoss
+>>> from libauc.losses import APLoss_SH
 >>> from libauc.optimizers import SGD, ADAM
 ...
 >>> #define loss
->>> Loss = SOAPLoss()
+>>> Loss = APLoss_SH()
 >>> optimizer = SGD()
 ...
 >>> #training
