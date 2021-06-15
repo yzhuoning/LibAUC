@@ -61,7 +61,7 @@ BATCH_SIZE = 64
 lr =  0.6
 weight_decay = 2e-4
 margin = 0.5
-gamma = 0.99
+beta = 0.99 # refers to gamma for moving average in the paper
 posNum = 1
 
 
@@ -80,7 +80,7 @@ model = ResNet18(pretrained=False, last_activation=None)
 model = model.cuda()
 
 # APLoss_SH requires ImbalanceSampler() with pos_num>=1!
-Loss = APLoss_SH(margin=margin, gamma=gamma, data_len=train_labels.shape[0])
+Loss = APLoss_SH(margin=margin, beta=beta, data_len=train_labels.shape[0])
 optimizer = SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
 
 # training 
