@@ -65,11 +65,11 @@ Usage
 ```python
 >>> #import library
 >>> from libauc.losses import APLoss_SH
->>> from libauc.optimizers import SGD, ADAM
+>>> from libauc.optimizers import SOAP_SGD, SOAP_ADAM
 ...
 >>> #define loss
 >>> Loss = APLoss_SH()
->>> optimizer = SGD()
+>>> optimizer = SOAP_SGD()
 ...
 >>> #training
 >>> model.train()    
