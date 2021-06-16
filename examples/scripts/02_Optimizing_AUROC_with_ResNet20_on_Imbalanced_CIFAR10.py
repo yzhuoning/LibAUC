@@ -7,7 +7,7 @@ from libauc.losses import AUCMLoss
 from libauc.optimizers import PESG
 from libauc.models import ResNet20
 from libauc.datasets import CIFAR10
-from libauc.datasets import imbalance_generator 
+from libauc.datasets import ImbalanceGenerator 
 
 import torch 
 from PIL import Image
