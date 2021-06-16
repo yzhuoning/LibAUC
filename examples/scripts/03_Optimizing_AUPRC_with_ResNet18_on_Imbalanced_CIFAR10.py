@@ -3,7 +3,7 @@ Author: Zhuoning Yuan, Qi Qi
 Contact: yzhuoning@gmail.com, qi-qi@uiowa.edu
 """
 from libauc.losses import APLoss_SH
-from libauc.optimizers import SGD
+from libauc.optimizers import SOAP_SGD
 from libauc.models import ResNet18
 from libauc.datasets import CIFAR10
 from libauc.datasets import ImbalanceGenerator, ImbalanceSampler 
@@ -61,7 +61,7 @@ BATCH_SIZE = 64
 lr =  0.6
 weight_decay = 2e-4
 margin = 0.5
-beta = 0.99 # refers to gamma for moving average in the paper
+beta = 0.99 # this refers to gamma in the paper
 posNum = 1
 
 
@@ -81,7 +81,7 @@ model = model.cuda()
 
 # APLoss_SH requires ImbalanceSampler() with pos_num>=1!
 Loss = APLoss_SH(margin=margin, beta=beta, data_len=train_labels.shape[0])
-optimizer = SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
+optimizer = SOAP_SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
 
 # training 
 model.train()
