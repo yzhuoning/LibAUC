@@ -1,7 +1,9 @@
 <p align="center">
   <img src="https://github.com/yzhuoning/LibAUC/blob/main/imgs/libauc.png" width="50%" align="center"/>
 </p>
-
+<p align="center">
+  Logo by <a href="https://homepage.divms.uiowa.edu/~zhuoning/">Zhuoning Yuan</a>
+</p>
 
 LibAUC
 ======
