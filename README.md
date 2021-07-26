@@ -5,9 +5,17 @@
   Logo by <a href="https://homepage.divms.uiowa.edu/~zhuoning/">Zhuoning Yuan</a>
 </p>
 
+
+<p align="center">
+  <img alt="PyPI version" src="https://img.shields.io/pypi/v/libauc?color=blue&style=flat-square"/>
+  <img alt="PyPI LICENSE" src="https://img.shields.io/pypi/pyversions/libauc?color=blue&style=flat-square" />
+  <img alt="PyPI language" src="https://img.shields.io/github/license/yzhuoning/libauc?color=blue&logo=libauc&style=flat-square" />
+</p>
+
 LibAUC
 ======
 An end-to-end machine learning library for AUC optimization (<strong>AUROC, AUPRC</strong>). 
+
 
 Why LibAUC?
 ---------------
@@ -18,8 +26,9 @@ Deep AUC Maximization (DAM) is a paradigm for learning a deep neural network by 
 
 Links
 --------------
+-  Official Website: https://libauc.org
+-  Release Notes: https://github.com/yzhuoning/LibAUC/releases
 -  Repository: https://github.com/yzhuoning/libauc
--  Website: https://libauc.org
 
 
 Installation
@@ -31,13 +40,14 @@ $ pip install libauc
 Usage
 -------
 ### Official Tutorials:
-- 01.Creating Imbalanced Benchmark Datasets [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/01_Creating_Imbalanced_Benchmark_Datasets.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
-- 02.Optimizing <strong>AUROC</strong> loss with ResNet20 on Imbalanced CIFAR10 [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/02_Optimizing_AUROC_with_ResNet20_on_Imbalanced_CIFAR10.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
-- 03.Optimizing <strong>AUPRC</strong> loss with ResNet18 on Imbalanced CIFAR10 [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/03_Optimizing_AUPRC_with_ResNet18_on_Imbalanced_CIFAR10.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
-- 04.Training with Pytorch Learning Rate Scheduling [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/04_Training_with_Pytorch_Learning_Rate_Scheduling.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
-- 05.Training with Imbalanced Datasets on Distributed Setting [[Coming soon]()]
+- Creating Imbalanced Benchmark Datasets [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/01_Creating_Imbalanced_Benchmark_Datasets.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
+- Optimizing <strong>AUROC</strong> loss with ResNet20 on Imbalanced CIFAR10 [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/02_Optimizing_AUROC_with_ResNet20_on_Imbalanced_CIFAR10.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
+- Optimizing <strong>AUPRC</strong> loss with ResNet18 on Imbalanced CIFAR10 [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/03_Optimizing_AUPRC_with_ResNet18_on_Imbalanced_CIFAR10.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
+- Training with Pytorch Learning Rate Scheduling [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/04_Training_with_Pytorch_Learning_Rate_Scheduling.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
+- Optimizing <strong>AUROC</strong> loss with DenseNet121 on <strong>CheXpert</strong> [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/05_Optimizing_AUROC_Loss_with_DenseNet121_on_CheXpert.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
+- Training with Imbalanced Datasets on Distributed Setting [[Coming soon]()]
 
-### Quickstart for beginner:
+### Quickstart for Beginners:
 #### Optimizing AUROC (Area Under the Receiver Operating Characteristic)
 ```python
 >>> #import library
@@ -71,7 +81,7 @@ Usage
 ...
 >>> #define loss
 >>> Loss = APLoss_SH()
->>> optimizer = SOAP_SGD()
+>>> optimizer = SOAP_ADAM()
 ...
 >>> #training
 >>> model.train()    
@@ -93,12 +103,12 @@ Citation
 ---------
 If you find LibAUC useful in your work, please cite the following paper for our library:
 ```
-@article{yuan2020robust,
-title={Robust Deep AUC Maximization: A New Surrogate Loss and Empirical Studies on Medical Image Classification},
-author={Yuan, Zhuoning and Yan, Yan and Sonka, Milan and Yang, Tianbao},
-journal={arXiv preprint arXiv:2012.03173},
-year={2020}
-}
+@inproceedings{yuan2021robust,
+	title={Robust Deep AUC Maximization: A New Surrogate Loss and Empirical Studies on Medical Image Classification},
+	author={Yuan, Zhuoning and Yan, Yan and Sonka, Milan and Yang, Tianbao},
+	booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+	year={2021}
+	}
 ```
 
 Contact
