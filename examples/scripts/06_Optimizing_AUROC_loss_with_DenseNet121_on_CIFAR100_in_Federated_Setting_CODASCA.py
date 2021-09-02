@@ -5,8 +5,13 @@ Reference:
     Zhuoning Yuan*, Zhishuai Guo*, Yi Xu, Yiming Ying, Tianbao Yang (equal contribution).
     Federated Deep AUC Maximization for Hetergeneous Data with a Constant Communication Complexity. 
     ICML 2021: 12219-12229 
+    
+How to run the code:  
+    
+    python -m torch.distributed.launch --nproc_per_node=4 --nnodes=1 --node_rank=0 --master_addr='YOUR IP' --master_port=8888 \
+            main_codasca_cifar.py --T0=4000 --imratio=0.1 --gamma=500 --lr=0.1 --I=8 --local_batchsize=32 --total_iter=20000
+    
 """
-
 import torch
 import torch.distributed as dist
 import numpy as np
@@ -21,7 +26,6 @@ physical_devices = tf.config.list_physical_devices('GPU')
 AUTO = tf.data.experimental.AUTOTUNE
 
 import argparse
-
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--image_size', type=int, default=32)
