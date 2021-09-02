@@ -45,7 +45,7 @@ Usage
 - Optimizing <strong>AUPRC</strong> loss with ResNet18 on Imbalanced CIFAR10 [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/03_Optimizing_AUPRC_with_ResNet18_on_Imbalanced_CIFAR10.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
 - Training with Pytorch Learning Rate Scheduling [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/04_Training_with_Pytorch_Learning_Rate_Scheduling.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
 - Optimizing <strong>AUROC</strong> loss with DenseNet121 on <strong>CheXpert</strong> [[Notebook](https://github.com/yzhuoning/LibAUC/blob/main/examples/05_Optimizing_AUROC_Loss_with_DenseNet121_on_CheXpert.ipynb)][[Script](https://github.com/yzhuoning/LibAUC/tree/main/examples/scripts)]
-- Training with Imbalanced Datasets on Distributed Setting [[Coming soon]()]
+- Optimizing <strong>AUROC</strong> loss with DenseNet121 on CIFAR100 in Federated Setting (<strong>CODASCA</strong>) [[Preliminary Release](https://github.com/yzhuoning/LibAUC/blob/main/examples/scripts/06_Optimizing_AUROC_loss_with_DenseNet121_on_CIFAR100_in_Federated_Setting_CODASCA.py)]
 
 ### Quickstart for Beginners:
 #### Optimizing AUROC (Area Under the Receiver Operating Characteristic)
