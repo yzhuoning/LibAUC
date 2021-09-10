@@ -12,6 +12,8 @@
   <img alt="PyPI language" src="https://img.shields.io/github/license/yzhuoning/libauc?color=blue&logo=libauc&style=flat-square" />
 </p>
 
+**Update**: Please visit our new repo [here](https://github.com/Optimization-AI/LibAUC)!
+
 LibAUC
 ======
 An end-to-end machine learning library for AUC optimization (<strong>AUROC, AUPRC</strong>). 
